@@ -7,7 +7,13 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddScoped<ITestService, TestService>();
 
 var app = builder.Build();
-string[] answersUser = {"false","false","false","false","false" };
+string[] answersUser = { "false", "false", "false", "false", "false" };
+
+string path = "note1.txt";
+
+string text = string.Join(",",answersUser);
+
+
 
 app.MapGet("/task/{id}", (int id,
     [FromServices] ITestService testService) => 
